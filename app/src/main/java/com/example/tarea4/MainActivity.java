@@ -11,7 +11,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private MenuItem nav_red, nav_blue, nav_green;
-    private Menu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Cargar el fragmento inicial
         loadFragment(new RedFragment());
-        menu = findViewById(R.menu.botton_nav_menu);
+        Menu menu = bottomNavigationView.getMenu();
         nav_red = menu.findItem(R.id.nav_red);
         nav_blue = menu.findItem(R.id.nav_blue);
         nav_green = menu.findItem(R.id.nav_green);
@@ -33,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (item.getItemId() == R.id.nav_red) {
-               // fragment = new RedFragment();
+                fragment = new RedFragment();
             } else if (item.getItemId() == R.id.nav_blue) {
-                //fragment = new BlueFragment();
+                fragment = new BlueFragment();
             } else if (item.getItemId() == R.id.nav_green) {
-               // fragment = new GreenFragment();
+                fragment = new GreenFragment();
             }
 
             if (fragment != null) {
